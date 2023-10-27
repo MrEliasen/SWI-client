@@ -50,13 +50,13 @@ export interface Stats {
      */
     nextRank: string;
     /**
-     * @generated from protobuf field: uint32 cash = 6;
+     * @generated from protobuf field: int64 cash = 6;
      */
-    cash: number;
+    cash: string;
     /**
-     * @generated from protobuf field: uint32 bank = 7;
+     * @generated from protobuf field: int64 bank = 7;
      */
-    bank: number;
+    bank: string;
     /**
      * @generated from protobuf field: string hometown = 8;
      */
@@ -137,8 +137,8 @@ class Stats$Type extends MessageType<Stats> {
             { no: 3, name: "rank", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 4, name: "reputation", kind: "scalar", T: 3 /*ScalarType.INT64*/ },
             { no: 5, name: "next_rank", kind: "scalar", T: 3 /*ScalarType.INT64*/ },
-            { no: 6, name: "cash", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "bank", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "cash", kind: "scalar", T: 3 /*ScalarType.INT64*/ },
+            { no: 7, name: "bank", kind: "scalar", T: 3 /*ScalarType.INT64*/ },
             { no: 8, name: "hometown", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 9, name: "health", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 10, name: "max_health", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
@@ -146,7 +146,7 @@ class Stats$Type extends MessageType<Stats> {
         ]);
     }
     create(value?: PartialMessage<Stats>): Stats {
-        const message = { name: "", rank: "", reputation: "0", nextRank: "0", cash: 0, bank: 0, hometown: "", health: 0, maxHealth: 0, skills: [] };
+        const message = { name: "", rank: "", reputation: "0", nextRank: "0", cash: "0", bank: "0", hometown: "", health: 0, maxHealth: 0, skills: [] };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Stats>(this, message, value);
@@ -172,11 +172,11 @@ class Stats$Type extends MessageType<Stats> {
                 case /* int64 next_rank */ 5:
                     message.nextRank = reader.int64().toString();
                     break;
-                case /* uint32 cash */ 6:
-                    message.cash = reader.uint32();
+                case /* int64 cash */ 6:
+                    message.cash = reader.int64().toString();
                     break;
-                case /* uint32 bank */ 7:
-                    message.bank = reader.uint32();
+                case /* int64 bank */ 7:
+                    message.bank = reader.int64().toString();
                     break;
                 case /* string hometown */ 8:
                     message.hometown = reader.string();
@@ -217,12 +217,12 @@ class Stats$Type extends MessageType<Stats> {
         /* int64 next_rank = 5; */
         if (message.nextRank !== "0")
             writer.tag(5, WireType.Varint).int64(message.nextRank);
-        /* uint32 cash = 6; */
-        if (message.cash !== 0)
-            writer.tag(6, WireType.Varint).uint32(message.cash);
-        /* uint32 bank = 7; */
-        if (message.bank !== 0)
-            writer.tag(7, WireType.Varint).uint32(message.bank);
+        /* int64 cash = 6; */
+        if (message.cash !== "0")
+            writer.tag(6, WireType.Varint).int64(message.cash);
+        /* int64 bank = 7; */
+        if (message.bank !== "0")
+            writer.tag(7, WireType.Varint).int64(message.bank);
         /* string hometown = 8; */
         if (message.hometown !== "")
             writer.tag(8, WireType.LengthDelimited).string(message.hometown);
